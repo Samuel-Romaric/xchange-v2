@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Mail\ContactUs;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 
 class ManagerController extends Controller
@@ -37,28 +38,21 @@ class ManagerController extends Controller
         }
 
         $mail_sended = true;
-        Mail::send(new ContactUs($request->except('_token')));
 
-        // try {
-        //     Mail::send(new ContactUs($request->except('_token')));
-        // } catch (\Exception $e) {
-        //     //throw $e;
-        //     $mail_sended = false;
-        //     \Log::error($e->getMessage(), $e->getTrace());
-        //     dd($e->getMessage();
-        // }
+        try {
+            Mail::send(new ContactUs($request->except('_token')));
+        } catch (\Exception $e) {
+            $mail_sended = false;
+            Log::error($e->getMessage(), $e->getTrace());
+        }
 
         if (!$mail_sended) {
             flashy()->error("Désolé notre message n'a pas été envoyé");
             return redirect()->back();
         } else {
-            flashy()->error("Votre message à bien été envoyé !");
+            flashy()->success("Votre message à bien été envoyé !");
             return redirect()->back();
         }
-
-        // flashy()->success("Votre message à bien été envoyé");
-        // return redirect()->back();
-        // // dd("sended !", $request->all());
     }
 
     public function community()

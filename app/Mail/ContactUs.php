@@ -22,7 +22,7 @@ class ContactUs extends Mailable
     {
         $this->data = $data;
 
-        // $this->onQueue('default');
+        $this->onQueue('default');
     }
 
     /**
