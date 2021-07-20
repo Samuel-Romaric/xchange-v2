@@ -1,0 +1,7 @@
+.title {
+    @apply text-8xl text-red-700;
+}
+
+.title {
+    color: red;
+}
