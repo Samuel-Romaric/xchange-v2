@@ -23,14 +23,34 @@
     </section>
 
     <section class="max-w-7xl px-4 sm:px-6 lg:px-12 mx-auto mt-8">
-        <div class="flex flex-col sm:flex-row items-center">
+        <div class="flex flex-col sm:flex-row container gap-4">
 
-            <div class="bg-blue-300 sm:w-screen">
-                Localization
+            <div
+                class="bg-white sm:w-screen px-2 block py-4 space-y-4 rounded-lg shadow-xl transition duration-200 hover:shadow-2xl ">
+                <div class="bg-red-300 w-full h-1/2 border border-gray-400 border-b-4">
+                    Carte google map
+                </div>
+                <div class="bg-white items-center text-base text-gray-600">
+                    <p class="inline-flex items-center">
+                        <span class="bg-gray-200 rounded-full mr-4">
+                            <x-heroicon-s-location-marker class="h-10 w-10 text-blue-500" />
+                        </span> Abidjan, Yopougon Cote d'Ivoire
+                    </p><br>
+                    <p class="inline-flex items-center">
+                        <span class="bg-gray-200 px-1 py-1 rounded-full mr-4">
+                            <x-heroicon-o-mail class="h-10 w-10" />
+                        </span> info@xchange.com
+                    </p><br>
+                    <p class="inline-flex items-center">
+                        <span class="bg-gray-200 rounded-full mr-4">
+                            <x-heroicon-o-phone class="h-10 w-10" />
+                        </span> (+225) 07 779 345 61
+                    </p>
+                </div>
             </div>
 
             <div
-                class="sm:w-screen bg-white px-4 py-5 text-gray-600 font-serif rounded-xl shadow-xl transition duration-200 hover:shadow-2xl">
+                class="sm:w-screen border border-gray-200 bg-white px-4 py-5 text-gray-600 font-serif rounded-xl shadow-xl transition duration-200 hover:shadow-2xl">
                 <form action="{{ route('front.add_message') }}" method="post" class="bg-white px-5 py-5 rounded"
                     x-ref="contact_us_form">
                     @csrf
@@ -60,9 +80,10 @@
 
                     <div class="mt-3">
                         <label for="message" class="block">Message</label>
-                        <textarea name="msg" id="" cols="" rows="4"
+                        <textarea name="msg" id="message" cols="" rows="4"
                             class="block w-full rounded-lg border border-gray-500 focus:ring-1 focus:ring-blue-700 focus:border focus:border-blue-700"
                             placeholder="Ecrivez votre message ici..."></textarea>
+                        <input type="hidden" name="sourceLink" value="{!! URL::previous() !!}">
                     </div>
 
                 </form>

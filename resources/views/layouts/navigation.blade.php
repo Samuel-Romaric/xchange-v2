@@ -11,17 +11,18 @@
         </a>
 
         <ul class="hidden md:flex md:items-center tracking-normal text-gray-500 space-x-4 text-sm font-medium">
-            <li>
-                <a href="{{ route('front.index') }}" class="duration-300 hover:text-gray-800">Home</a>
+            <li class="items-center">
+                <a href="{{ route('front.index') }}" class="{{ guessActive('front.index') }}">Home</a>
             </li>
-            <li>
+            {{-- <li class="">
                 <a href="" class="duration-300 hover:text-gray-800">About</a>
+            </li> --}}
+            <li class="items-center">
+                <a href="{{ route('front.contact') }}" class="{{ guessActive('front.contact') }}">Contacter</a>
             </li>
-            <li>
-                <a href="{{ route('front.contact') }}" class="duration-300 hover:text-gray-800">Contacter</a>
-            </li>
-            <li>
-                <a href="{{ route('front.community') }}" class="duration-300 hover:text-gray-800">Communauté</a>
+            <li class="items-center">
+                <a href="{{ route('front.community') }}"
+                    class="duration-300 {{ guessActive('front.community') }}">Communauté</a>
             </li>
             <li>
                 <a href="javascript:void(0)" @click.prevent="isOpenChangeLocalizationModal = true"
@@ -129,11 +130,19 @@
     <div class="md:hidden absolute z-30 bg-white right-0 transition duration-150 border border-gray-200 rounded-lg shadow-lg"
         x-show="open" @click.away="open = false" x-cloak>
         <div class="pt-2 pb-0 lg:pb-3 tracking-normal">
-            <a href=""
+            <a href="{{ route('front.index') }}"
+                class="block pl-3 pr-4 py-2 border-l-4 text-sm font-medium focus:outline-none transition duration-150 ease-in-out text-gray-500 hover:text-gray-700 hover:bg-gray-200">
+                Home
+            </a>
+            <a href="{{ route('front.contact') }}"
+                class="block pl-3 pr-4 py-2 border-l-4 text-sm font-medium focus:outline-none transition duration-150 ease-in-out text-gray-500 hover:text-gray-700 hover:bg-gray-200">
+                Contact
+            </a>
+            {{-- <a href=""
                 class="block pl-3 pr-4 py-2 border-l-4 text-sm font-medium focus:outline-none transition duration-150 ease-in-out text-gray-500 hover:text-gray-700 hover:bg-gray-200">
                 About
-            </a>
-            <a href=""
+            </a> --}}
+            <a href="{{ route('front.community') }}"
                 class="block pl-3 pr-4 py-2 border-l-4 text-sm font-medium focus:outline-none transition duration-150 ease-in-out text-gray-500 hover:text-gray-700 hover:bg-gray-200">
                 Communauté
             </a>
@@ -141,6 +150,29 @@
                 class="mt-1 mb-1 block pl-3 pr-4 py-2 border-l-4 text-sm font-medium transition duration-150 ease-in-out text-gray-500 hover:text-gray-700 hover:bg-gray-200">
                 <x-heroicon-o-translate class="h-6 w-6" />
             </a>
+
+            @guest
+            @if (Route::is('register'))
+            <div class="sm:flex sm:items-center sm:ml-6">
+                <a href="{{ route('login') }}" class="text-gray-600 hover:underline">Se connecter</a>
+            </div>
+            @elseif(Route::is('login'))
+            <!-- Go to register -->
+            <div class="sm:flex sm:items-center sm:ml-6">
+                <a href="{{ route('register') }}" class="text-gray-600 hover:underline">S'inscrire</a>
+            </div>
+            @else
+            <div class="">
+                <div class="sm:flex sm:items-center sm:ml-6">
+                    <a href="{{ route('login') }}" class="text-gray-600 hover:underline">Se connecter</a>
+                </div>
+                <!-- Go to register -->
+                <div class="sm:flex sm:items-center sm:ml-6">
+                    <a href="{{ route('register') }}" class="text-gray-600 hover:underline">S'inscrire</a>
+                </div>
+            </div>
+            @endif
+            @endguest
 
             @auth
             <div class="mt-3"></div>

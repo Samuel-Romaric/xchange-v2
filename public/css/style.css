@@ -1,7 +1,9 @@
-.title {
-    @apply text-8xl text-red-700;
-}
-
-.title {
-    color: red;
+.slideBar{
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0;
+  transition: all 1s;
 }

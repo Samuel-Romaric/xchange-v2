@@ -18,6 +18,17 @@ if (!function_exists('persist_active')) {
     }
 }
 
+if (!function_exists('guessActive')) {
+    function guessActive($route)
+    {
+        if (Route::is($route)) {
+            return "text-indigo-700 text-base border border-indigo-500 px-2 py-1 rounded-3xl items-center hover:text-white hover:bg-blue-500 transition duration";
+        } else {
+            return "px-2 py-1 rounded-3xl text-base hover:bg-blue-500 hover:text-white items-center transition duration-200";
+        }
+    }
+}
+
 if (!function_exists('lang_switch')) {
     function lang_switch($locale)
     {

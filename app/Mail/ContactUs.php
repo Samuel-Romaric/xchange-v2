@@ -32,8 +32,8 @@ class ContactUs extends Mailable
      */
     public function build()
     {
-        return $this->to("sami@sami.com")
-            ->subject('Contactez-nous')
+        return $this->to("admin@xchange.com")
+            ->subject("Message from: < " . $this->data['name'] . " >")
             ->markdown('emails.contactus');
     }
 }
