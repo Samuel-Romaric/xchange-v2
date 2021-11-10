@@ -13,17 +13,17 @@
                 <div class="inline-flex items-center space-x-3">
                     @include('posts.partials.breadcrumb', ['title' => 'Mon space'])
 
-                    <div
+                    {{-- <div
                         class="font-sans text-white text-sm mx-2 inline-flex h-7 px-2 rounded-3xl items-center bg-blue-500 border-2 border-white hover:bg-blue-700 transition duration-150">
                         <a href="javascript:void(0)" class="">
                             <span class="bg-white text-red-600 mx-1 px-1 py-0 rounded-full">{{ $myPostNb }}</span> -
-                            Publications
-                        </a>
-                    </div>
-                </div>
+                    Publications
+                    </a>
+                </div> --}}
+            </div>
 
-                <div class="inline-flex space-x-4">
-                    {{-- <button @click.prevent="toggleFilter"
+            <div class="inline-flex space-x-4">
+                {{-- <button @click.prevent="toggleFilter"
                         class="px-2 text-gray-500 bg-gray-100 rounded-md border border-gray-300 font-medium text-sm inline-flex space-x-2 items-center"
                         style="outline: none;">
                         <span class="h-5 w-auto">
@@ -31,15 +31,15 @@
                         </span>
                         <span>Filter</span>
                     </button> --}}
-                    <a href="javascript:void(0)" @click="openModalAddPost()"
-                        class="px-2 bg-blue-500 py-2 text-white hover:bg-blue-700 rounded-lg text-sm inline-flex space-x-2 items-center">
-                        <span class="text-lg mr-1">
-                            <x-heroicon-o-document-add class="h-5 w-5" /></span> {{ __('post-index.publi') }}
-                    </a>
-                </div>
-
+                <a href="javascript:void(0)" @click="openModalAddPost()"
+                    class="px-2 bg-blue-500 py-2 text-white hover:bg-blue-700 rounded-lg text-sm inline-flex space-x-2 items-center">
+                    <span class="text-lg mr-1">
+                        <x-heroicon-o-document-add class="h-5 w-5" /></span> {{ __('post-index.publi') }}
+                </a>
             </div>
-            {{-- <div id="filter-content" style="display: none">
+
+        </div>
+        {{-- <div id="filter-content" style="display: none">
                 <livewire:posts.filter />
             </div> --}}
         </div>

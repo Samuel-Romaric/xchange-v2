@@ -6,7 +6,7 @@ use App\Models\Post;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class PostsIndex extends Component
+class Index extends Component
 {
     use WithPagination;
 
@@ -44,6 +44,6 @@ class PostsIndex extends Component
     {
         $posts = Post::where('title', 'like', '%' . $this->search . '%')->orderBy('created_at', 'desc')->paginate(10);
 
-        return view('livewire.posts.posts-index', compact('posts'));
+        return view('livewire.posts.index', compact('posts'));
     }
 }

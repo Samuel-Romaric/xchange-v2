@@ -45,14 +45,15 @@
                                     </div>
                                 </div>
 
+                                <div class="mt-4 text-gray-700 items-center">
+                                    Modifier l'illustration
+                                    <label class="switch">
+                                        <input type="checkbox" id="hasIllustration">
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+
                                 <div class="pt-4">
-                                    <div class="flex items-center space-x-3">
-                                        <label for="" class="inline-flex text-sm font-medium text-gray-700">
-                                            Illustration
-                                        </label>
-                                        <input type="checkbox" name="illustration" id="hasIllustration"
-                                            class="ml-4 rounded-md" value="">
-                                    </div>
                                     <div class="mt-3 flex space-x-2 items-center" id="addIllustration"
                                         style="display: none;">
                                         <div class="relative w-1/2 inline-flex">

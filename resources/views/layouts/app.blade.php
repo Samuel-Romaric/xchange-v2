@@ -12,22 +12,22 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     @livewireStyles
     @yield('css')
 </head>
 
-<body class="font-sans antialiased" style="background-image: url('/images/bodybg/bg6.png')">
+<body class="font-sans antialiased" style="background-image: url('/images/bodybg/bg1.png')">
 
     <div class="min-h-screen">
         @include('layouts.navigation')
 
         <!-- Page Heading -->
-        <header class="bg-white shadow">
-            <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                {{-- {{ $header }} --}}
-                @include('layouts.partials._nav')
-            </div>
+        <header class="bg-white shadow py-2">
+            {{-- <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8"> --}}
+            {{-- {{ $header }} --}}
+            @include('layouts.partials._nav')
+            {{-- </div> --}}
         </header>
 
         @yield('content')
@@ -38,10 +38,10 @@
 
     <!-- Scripts -->
     @livewireScripts
-    <script src="{{ asset('/js/app.js') }}"></script>
+    <script src="{{ mix('/js/app.js') }}"></script>
     <script src="{{ asset('/js/jquery.js') }}"></script>
-    @include('flashy::message')
     @yield('script')
+    @include('flashy::message')
 </body>
 
 </html>

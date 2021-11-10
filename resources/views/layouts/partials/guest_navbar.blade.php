@@ -19,15 +19,16 @@
                     </div>
                 </div>
             </div>
- 
+
             @if (Route::is('register'))
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 <a href="{{ route('login') }}" class="text-gray-600 hover:underline">Se connecter</a>
             </div>
             @else
             <!-- Go to register -->
-            <div class="hidden sm:flex sm:items-center sm:ml-6">
-                <a href="{{ route('register') }}" class="text-gray-600 hover:underline">S'inscrire</a>
+            <div class="hidden sm:flex sm:items-center sm:ml-6 items-center">
+                <a href="{{ route('register') }}"
+                    class="text-gray-600 hover:bg-white hover:text-blue-800 bg-black">S'inscrire</a>
             </div>
             @endif
 

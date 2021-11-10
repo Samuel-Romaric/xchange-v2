@@ -1,29 +1,24 @@
-<nav class="lg:py-5 py-3 w-full border-b z-20 bg-white lg:relative shadow"
+<nav class="lg:py-5 py-3 w-full border-b z-20 bg-gray-50 lg:relative shadow"
     x-data="{ open: false, openDropdown: false, isOpenChangeLocalizationModal: false, changeLocalizationAction() { this.$refs.change_localization_button.classList.add('cursor-wait', 'opacity-30'); this.$refs.change_localization_form.submit(); } }">
     <div class="max-w-7xl px-4 sm:px-6 lg:px-12 mx-auto flex items-center justify-between">
 
         <!-- Logo -->
         <a href="{{ route('front.index') }}"
-            class="text-blue-600 border border-gray-400 text-xl font-serif transform scale-100 -rotate-3 hover:-rotate-6 hover:scale-110 bg-green-100 px-2 py-1 rounded-3xl italic">
+            class="text-blue-600 border border-gray-200 text-xl font-serif transform scale-100 -rotate-3 hover:-rotate-6 hover:scale-110 bg-gradient-to-bl from-red-100 to-blue-200 px-2 py-1 rounded-3xl italic">
             <span class="">xChange</span>
-            {{-- <img class="h-7 flex-shrink-0" src="{{ asset('/images/logo/logo-xchange.png') }}" alt="logo xchange">
-            --}}
         </a>
 
         <ul class="hidden md:flex md:items-center tracking-normal text-gray-500 space-x-4 text-sm font-medium">
             <li class="items-center">
-                <a href="{{ route('front.index') }}" class="{{ guessActive('front.index') }}">Home</a>
+                <a href="{{ route('front.index') }}" class="{{ guessActive('front.index') }}">Acceuil</a>
             </li>
-            {{-- <li class="">
-                <a href="" class="duration-300 hover:text-gray-800">About</a>
-            </li> --}}
             <li class="items-center">
                 <a href="{{ route('front.contact') }}" class="{{ guessActive('front.contact') }}">Contacter</a>
             </li>
-            <li class="items-center">
+            {{-- <li class="items-center">
                 <a href="{{ route('front.community') }}"
-                    class="duration-300 {{ guessActive('front.community') }}">Communauté</a>
-            </li>
+            class="duration-300 {{ guessActive('front.community') }}">Communauté</a>
+            </li> --}}
             <li>
                 <a href="javascript:void(0)" @click.prevent="isOpenChangeLocalizationModal = true"
                     class="duration-300 transition hover:text-gray-800">
@@ -37,7 +32,8 @@
             @elseif(Route::is('login'))
             <!-- Go to register -->
             <div class="hidden sm:flex sm:items-center sm:ml-6">
-                <a href="{{ route('register') }}" class="text-gray-600 hover:underline">S'inscrire</a>
+                <a href="{{ route('register') }}"
+                    class="text-white font-sans font-bold shadow-2xl px-2 py-1 rounded-lg hover:bg-blue-800 bg-blue-500 cursor-pointer">S'inscrire</a>
             </div>
             @else
             <div class="flex">
@@ -46,19 +42,25 @@
                 </div>
                 <!-- Go to register -->
                 <div class="hidden sm:flex sm:items-center sm:ml-6">
-                    <a href="{{ route('register') }}" class="text-gray-600 hover:underline">S'inscrire</a>
+                    <a href="{{ route('register') }}"
+                        class="text-blue-800 px-2 py-1 bg-gradient-to-bl from-red-100 to-blue-200 rounded-3xl ring-1 ring-blue-400">S'inscrire</a>
                 </div>
             </div>
             @endif
             @endguest
 
             @auth
+            {{-- <li>
+                <a href="javascript:void(0)" @click.prevent="isOpenChangeLocalizationModal = true"
+                    class="duration-300 transition hover:text-gray-800">
+                    <x-heroicon-o-bell class="h-5 w-5" /></a>
+            </li> --}}
             <!-- Dropdown Nav Settings -->
             <div @click.away="openDropdown = false" class="text-gray-500 relative">
                 <div @click="openDropdown = ! openDropdown">
                     <a href="javascript:void(0)">
                         <img class="h-8 w-8 rounded-full"
-                            src="{{ is_null(auth()->user()->getFirstMedia('avatars')) ? '/images/no-image-user.jpg' : auth()->user()->getFirstMedia('avatars')->getUrl() }}"
+                            src="{{ is_null(auth()->user()->getFirstMedia('avatars')) ? asset('/images/no-image-user.jpg') : auth()->user()->getFirstMedia('avatars')->getUrl() }}"
                             alt="">
                     </a>
                 </div>
@@ -80,14 +82,14 @@
                             <a class="flex px-4 py-2 text-sm leading-4 text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
                                 href="{{ route('user.my_space') }}">
                                 <span class="mr-2">
-                                    <x-heroicon-s-user-group class="h-4 w-4" />
-                                </span> Mon espace</a>
+                                    <x-heroicon-s-user class="h-4 w-4" />
+                                </span> Mon profile</a>
                             <a class="flex px-4 py-2 text-sm leading-4 text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
                                 href="{{ route('user.settings.index') }}">
                                 <span class="mr-2">
                                     <x-heroicon-s-cog class="h-4 w-4" />
                                 </span> Paramètre</a>
-
+                            <hr class="mt-3 mb-1">
                             <div class="mt-1 space-y-1">
                                 <!-- Log out -->
                                 <form method="POST" action="{{ route('logout') }}">
@@ -95,7 +97,7 @@
 
                                     <x-responsive-nav-link :href="route('logout')" onclick="event.preventDefault();
                                                         this.closest('form').submit();">
-                                        {{ __('Déconnexion') }}
+                                        <x-heroicon-s-logout class="h-4 w-4 mr-2" /> {{ __('Déconnexion') }}
                                     </x-responsive-nav-link>
                                 </form>
                             </div>
@@ -138,10 +140,6 @@
                 class="block pl-3 pr-4 py-2 border-l-4 text-sm font-medium focus:outline-none transition duration-150 ease-in-out text-gray-500 hover:text-gray-700 hover:bg-gray-200">
                 Contact
             </a>
-            {{-- <a href=""
-                class="block pl-3 pr-4 py-2 border-l-4 text-sm font-medium focus:outline-none transition duration-150 ease-in-out text-gray-500 hover:text-gray-700 hover:bg-gray-200">
-                About
-            </a> --}}
             <a href="{{ route('front.community') }}"
                 class="block pl-3 pr-4 py-2 border-l-4 text-sm font-medium focus:outline-none transition duration-150 ease-in-out text-gray-500 hover:text-gray-700 hover:bg-gray-200">
                 Communauté
@@ -189,6 +187,18 @@
                     </div>
                 </div>
             </div>
+            <div>
+                <a class="flex px-4 py-2 text-sm leading-4 text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
+                    href="{{ route('user.my_space') }}">
+                    <span class="mr-2">
+                        <x-heroicon-s-user class="h-4 w-4" />
+                    </span> Mon profile</a>
+                <a class="flex px-4 py-2 text-sm leading-4 text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
+                    href="{{ route('user.settings.index') }}">
+                    <span class="mr-2">
+                        <x-heroicon-s-cog class="h-4 w-4" />
+                    </span> Paramètre</a>
+            </div>
             <hr class="mt-3 mb-1">
             <div>
                 <div class="mt-1 space-y-1">
@@ -198,7 +208,7 @@
 
                         <x-responsive-nav-link :href="route('logout')" onclick="event.preventDefault();
                                                                         this.closest('form').submit();">
-                            {{ __('Déconnexion') }}
+                            <x-heroicon-s-logout class="h-4 w-4 mr-2" /> {{ __('Déconnexion') }}
                         </x-responsive-nav-link>
                     </form>
                 </div>

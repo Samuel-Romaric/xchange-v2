@@ -43,7 +43,9 @@
                                             {{ \Str::ucfirst($post->title) }}
                                         </h1>
                                         <p class="text-gray-500 ml-8 text-xs italic font-serif">
-                                            {{-- <x-heroicon-o-clock class="h-5 w-5" /> --}}
+                                            {{-- <span class="inline-flex">
+                                                <x-heroicon-o-clock class="h-5 w-5" />
+                                            </span> --}}
                                             {{ $post->created_at->locale($post->user->lang)->calendar() }}
                                         </p>
                                     </div>

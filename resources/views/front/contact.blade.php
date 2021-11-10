@@ -1,6 +1,6 @@
 @extends('layouts.guest')
 
-@section('title', ' | Contactez-nous')
+@section('title', 'Contactez-nous | ')
 
 @section('css')
 
@@ -28,7 +28,7 @@
             <div
                 class="bg-white sm:w-screen px-2 block py-4 space-y-4 rounded-lg shadow-xl transition duration-200 hover:shadow-2xl ">
                 <div class="bg-red-300 w-full h-1/2 border border-gray-400 border-b-4">
-                    Carte google map
+                    <img src="{{ asset('/images/map.png') }}" alt="" style="height: 100%; width: 100%">
                 </div>
                 <div class="bg-white items-center text-base text-gray-600">
                     <p class="inline-flex items-center">

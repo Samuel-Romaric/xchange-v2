@@ -1,4 +1,4 @@
-<div class="mb-5 mt-5 bg-indigo-100">
+<div class="mb-5 mt-5">
 
     <section class="mt-5">
         <div class="max-w-7xl px-0 sm:px-6 lg:px-12 mx-auto">
@@ -170,7 +170,7 @@
                                         {{ \Str::ucfirst($postComment->content) }}
                                         <br>
                                         <span class="text-xs text-gray-500 italic flex hover:text-gray-600">
-                                            {{ $postComment->created_at->locale($post->user->lang)->calendar() }}
+                                            {{ $postComment->updated_at->locale($post->user->lang)->calendar() }}
                                             {{-- <span class="inline-flex ml-3 space-x-2">
                                                 <span class="text-blue-500">
                                                     <x-heroicon-o-thumb-up class="h-5 w-5" />
@@ -185,8 +185,8 @@
 
                             </div>
                             <div x-data="{isOpen: false}" class="relative" x-cloak>
-                                <button @click="isOpen = !isOpen" style="outline:none">
-                                    <x-heroicon-o-dots-vertical class="h-5 w-5 cursor-pointer" />
+                                <button @click="isOpen = !isOpen" style="">
+                                    <x-heroicon-o-dots-vertical class="h-5 w-5 cursor-pointer outline-none" />
                                 </button>
 
                                 <ul x-show="isOpen" @click.away="isOpen = false"

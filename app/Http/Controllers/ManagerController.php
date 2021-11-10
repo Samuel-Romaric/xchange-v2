@@ -26,7 +26,7 @@ class ManagerController extends Controller
             $request->all(),
             [
                 'name' => 'required|string|min:3',
-                'email' => 'required|email',
+                'email' => 'required|email:rfc,dns',
                 'subject' => 'required',
                 'msg' => 'required|string|min:8',
             ]
@@ -60,10 +60,10 @@ class ManagerController extends Controller
         return view('front.community');
     }
 
-    public function notifications()
-    {
-        return view('posts.notifications.index');
-    }
+    // public function notifications()
+    // {
+    //     return view('posts.notifications.index');
+    // }
 
     public function changeLocalization(Request $request)
     {
@@ -95,5 +95,10 @@ class ManagerController extends Controller
         flashy()->success('Vos paramètre de langue on été mise à jour');
 
         return redirect()->back();
+    }
+
+    public function policy()
+    {
+        return view('front.policy');
     }
 }

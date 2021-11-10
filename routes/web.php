@@ -17,7 +17,17 @@ Route::middleware('localization')->namespace('App\\Http\\Controllers')->group(fu
 
     Route::middleware('guest')->group(function () {
 
-        Route::get('/', 'GuestController@index')->name('home');
+        // Route::get('/', 'GuestController@index')->name('home');
+
+        Route::get('/forgot-password', 'Auth\PasswordResetLinkController@create')->name('password.request');
+
+        Route::post('/forgot-password', 'Auth\PasswordResetLinkController@store')->name('password.email');
+
+        //**************** */
+        Route::get('/reset-password/{token}', 'Auth\NewPasswordController@create')->name('password.reset');
+
+        Route::post('/reset-password', 'Auth\NewPasswordController@store')->name('password.update');
+        //*************** */
 
         // Route of the log in
         Route::get('/login', 'Auth\AuthenticatedSessionController@create')->name('login');
@@ -39,8 +49,22 @@ Route::middleware('localization')->namespace('App\\Http\\Controllers')->group(fu
 
     Route::get('/community', 'ManagerController@community')->name('front.community');
 
+    Route::get('policy', 'ManagerController@policy')->name('front.policy');
+
     //
     Route::middleware('auth')->group(function () {
+
+        // Verify email
+        // Route::get('/verify-email', 'Auth\EmailVerificationPromptController')->name('verification.notice');
+
+
+        // Route::post('/email/verification-notification', '\Auth\EmailVerificationNotificationController@store'])
+        //     ->middleware('throttle:6,1')
+        //     ->name('verification.send');
+
+        // Route::get('/verify-email/{id}/{hash}', 'Auth\VerifyEmailController')
+        //     ->middleware(['signed', 'throttle:6,1'])
+        //     ->name('verification.verify');
 
         // Post home page route
         Route::get('/home', 'Posts\ManagerController@index')->name('home');

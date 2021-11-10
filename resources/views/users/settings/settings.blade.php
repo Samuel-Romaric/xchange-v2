@@ -4,11 +4,11 @@
 
 @section('content')
 
-<main x-data="data()" class="mx-8">
+<main x-data="data()" class="mT-5">
     <section class="mt-5">
         <div class="max-w-7xl px-4 sm:px-6 lg:px-12 mx-auto">
             {{-- <h1 class="text-base font-semibold"> Paramètres </h1> --}}
-            <div class="w-1/4">
+            <div class="md:w-1/4 sm:w-full">
                 @include('posts.partials.breadcrumb', ['title' => 'A revoire.......'])
             </div>
         </div>

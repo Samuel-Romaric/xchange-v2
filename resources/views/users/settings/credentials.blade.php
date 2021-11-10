@@ -6,9 +6,13 @@
 
 <section class="mt-5">
     <div class="max-w-7xl px-4 sm:px-6 lg:px-12 mx-auto">
-        <h1 class="text-base font-semibold"> Paramètres </h1>
+        {{-- <h1 class="text-base font-semibold"> Paramètres </h1> --}}
+        <div class="md:w-1/4 sm:w-full">
+            @include('posts.partials.breadcrumb', ['title' => 'A revoire.......'])
+        </div>
     </div>
 </section>
+
 <section class="mt-5 mb-7">
     <div class="max-w-7xl px-4 sm:px-6 lg:px-12 mx-auto">
         <div class="grid grid-cols-1 lg:grid-cols-7 gap-4 lg:gap-8">

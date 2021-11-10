@@ -20,7 +20,7 @@
                             <div class="flex flex-col -space-y-1">
 
                                 <div
-                                    class="post-item py-3 flex items-center lg:items-start flex-col lg:flex-row lg:justify-between">
+                                    class="py-3 flex items-center lg:items-start flex-col lg:flex-row lg:justify-between">
                                     <div
                                         class="flex flex-col lg:flex-row items-center lg:items-start space-y-3 space-x-0 lg:space-y-0 lg:space-x-5">
                                         <div class="post-cover flex justify-center lg:flex-shrink-0">
@@ -67,6 +67,13 @@
                                                                 <a href="{{ route('post.show', $post->id) }}"
                                                                     class="text-gray-500 hover:text-gray-800 transition duration-100 block">
                                                                     Voir
+                                                                </a>
+                                                            </li>
+                                                            <li
+                                                                class="text-sm px-5 hover:bg-gray-200 transition duration-100">
+                                                                <a href="{{ route('post.show', $post->id) }}"
+                                                                    class="text-gray-500 hover:text-gray-800 transition duration-100 block">
+                                                                    Signaler
                                                                 </a>
                                                             </li>
                                                             <li
@@ -134,7 +141,7 @@
 
                             <div class="flex py-1 space-x-2">
                                 <div class="px-2 bg-gray-200 rounded-2xl border border-gray-200">
-                                    <a href="" @click.prevent="toggleComment"
+                                    <a href="{{ route('post.show', $post->id) }}"
                                         class="text-blue-500 hover:text-blue-700 px-2 py-1 duration-100 inline-flex relative"
                                         style="outline: none;">
                                         <x-heroicon-o-chat-alt class="h-6 w-6" /> <span

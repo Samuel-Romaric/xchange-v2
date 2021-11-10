@@ -31,7 +31,7 @@
     </center>
 
     <section class="py-5 sm:flex-row">
-        <div class="max-w-7xl px-4 sm:px-2 lg:px-12 mx-auto space-y-7">
+        <div class="max-w-7xl px-4 sm:px-6 lg:px-12 mx-auto space-y-7">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-2 lg:gap-8">
                 @forelse ($posts as $post)
                 <div

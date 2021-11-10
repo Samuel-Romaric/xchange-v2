@@ -1,4 +1,4 @@
-<div class="mt-4 flex flex-col sm:flex-row lg:flex items-center justify-between">
+<div class="mt-4 flex flex-col gap-4 sm:flex-row lg:flex items-center justify-between">
 
     <div class="items-center space-x-3 h-8 shadow hover:shadow-lg">
         <select name="" id="" class="rounded-lg bg-white text-gray-600 font-medium text-sm border border-gray-300">
@@ -18,7 +18,7 @@
                 </span>
             </div>
             <input type="text" wire:model.debounce.500ms="research"
-                class="focus:ring-blue-600 focus:border-blue-600 focus:shadow-2xl block w-full pl-10 pr-12 sm:text-sm focus:z-20 font-medium border-gray-400 py-2 rounded-3xl"
+                class="focus:ring-blue-600 focus:border-blue-600 focus:shadow-2xl block w-full pl-10 pr-12 sm:text-sm font-medium border-gray-400 py-2 rounded-3xl"
                 placeholder="Rechercher une publication ...">
         </div>
     </div>
